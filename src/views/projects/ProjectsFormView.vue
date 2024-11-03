@@ -22,10 +22,10 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { useStore } from "@/store";
-import { ADD_PROJECT, EDIT_PROJECT } from '@/store/type-mutations';
+import { ADD_PROJECT, EDIT_PROJECT } from "@/store/type-mutations";
 import AppActionButton from "@/components/AppActionButton.vue";
-import { toasterMixin } from "@/mixins/addToast";
 import { TypeToaster } from "@/interfaces/IToaster";
+import useToaster from "@/hooks/toastification"
 
 export default defineComponent({
 	name: 'ProjectsFormView',
@@ -33,7 +33,6 @@ export default defineComponent({
 	props: {
 		id: String
 	},
-	mixins: [toasterMixin],
 	mounted() {
 		const project = this.store.state.projects.find(proj => proj.id == this.id);
 		this.projectName = project?.name || '';
@@ -60,8 +59,10 @@ export default defineComponent({
 	},
 	setup() {
 		const store = useStore();
+		const { addToast } = useToaster();
 		return {
-			store
+			store,
+			addToast
 		}
 	}
 });

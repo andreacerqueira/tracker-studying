@@ -1,7 +1,10 @@
 <template>
 	<AppListBox>
-		<div class="flex">
+		<div>
 			{{ task.description || 'Task without a name!' }}
+		</div>
+		<div>
+			{{ task.project?.name || 'N/D' }}
 		</div>
 		<div class="sm:flex sm:flex-col sm:items-end">
 			<AppStopWatch :timeSec="task.durationInSecs" />
