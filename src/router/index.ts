@@ -1,26 +1,48 @@
-import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
-import HomeView from "../views/HomeView.vue";
+import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
+import TasksView from '../views/TasksView.vue';
+import ProjectsView from '../views/ProjectsView.vue';
+import SettingsView from '../views/SettingsView.vue';
+import ProjectsFormView from '../views/projects/ProjectsFormView.vue';
+import ListView from '@/views/projects/ListView.vue';
 
 const routes: Array<RouteRecordRaw> = [
-  {
-    path: "/",
-    name: "home",
-    component: HomeView,
-  },
-  {
-    path: "/about",
-    name: "about",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/AboutView.vue"),
-  },
+	{
+		path: '/',
+		name: 'Tasks',
+		component: TasksView
+	},
+	{
+		path: '/projects',
+		component: ProjectsView,
+		children: [
+			{
+				path: '',
+				name: 'Projects',
+				component: ListView
+			},
+			{
+				path: 'new',
+				name: 'New Project',
+				component: ProjectsFormView
+			},
+			{
+				path: ':id',
+				name: 'Edit Project',
+				component: ProjectsFormView,
+				props: true
+			}
+		]
+	},
+	{
+		path: '/settings',
+		name: 'Settings',
+		component: SettingsView
+	}
 ];
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
-  routes,
+	history: createWebHistory(),
+	routes,
 });
 
 export default router;

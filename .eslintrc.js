@@ -7,13 +7,18 @@ module.exports = {
     "plugin:vue/vue3-essential",
     "eslint:recommended",
     "@vue/typescript/recommended",
-    "plugin:prettier/recommended",
+    // "plugin:prettier/recommended",
   ],
   parserOptions: {
     ecmaVersion: 2020,
   },
   rules: {
+    "indent": "off", // Disable ESLint indentation rule
+    // "prettier/prettier": ["error", { // Add this to enforce tab settings
+    //   "useTabs": true,
+    //   "tabWidth": 2
+    // }],
     "no-console": process.env.NODE_ENV === "production" ? "warn" : "off",
-    "no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off",
+    "no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off"
   },
 };
