@@ -12,7 +12,7 @@
 				id="task_name"
 				placeholder="What task are you starting to work on?"
 				v-model="description"
-				class="flex-1 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
+				class="flex-1 bg-gray-900 appearance-none border-2 border-gray-900 rounded w-full py-2 px-4 text-white leading-tight focus:outline-none focus:bg-gray-900/80 focus:border-blue-500"
 			/>
 		</div>
 		<div class="flex flex-row gap-2 items-center w-full">
@@ -22,7 +22,7 @@
 				name="project_name"
 				id="project_name"
 				placeholder="What task are you starting to work on?"
-				class="flex-1 bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-500"
+				class="flex-1 bg-gray-900 appearance-none border-2 border-gray-900 rounded w-full py-2 px-4 text-white leading-tight focus:outline-none focus:bg-gray-900/80 focus:border-blue-500"
 			>
 			<option>Select a project</option>
 			<option

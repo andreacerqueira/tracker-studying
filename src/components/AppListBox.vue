@@ -1,5 +1,5 @@
 <template>
-	<div role="list" class="flex justify-between gap-6 p-4 my-2 rounded-md shadow-md bg-gray-100 text-sm font-semibold text-gray-900">
+	<div role="list" class="flex justify-between gap-6 p-4 my-2 rounded-md shadow-md bg-gray-900 text-sm font-semibold text-white">
 		<slot></slot>
 	</div>
 </template>
