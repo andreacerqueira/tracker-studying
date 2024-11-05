@@ -1,6 +1,6 @@
 <template>
 	<AppListBox>
-		<div>
+		<div @click="taskClicked">
 			{{ task.description || 'Task without a name!' }}
 		</div>
 		<div>
@@ -21,6 +21,7 @@ import ITask from '../interfaces/ITask';
 
 export default defineComponent({
 	name: "AppTask",
+	emits: ['onTaskClicked'],
 	components: { AppStopWatch, AppListBox },
 	props: {
 		task: { 
@@ -28,6 +29,18 @@ export default defineComponent({
 			required: true
 		}
 	}
+	,methods: {
+    taskClicked() : void {
+      this.$emit('onTaskClicked', this.task)
+    }
+  },
+  computed: {
+    timePast() : string {
+      return new Date(this.task.durationInSecs * 1000)
+        .toISOString()
+        .substr(11, 8)
+    }
+  }
 });
 </script>
 

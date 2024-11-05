@@ -5,7 +5,7 @@ export enum TypeToaster {
 }
 
 export default interface IToaster {
-	index: number;
+	id: number;
 	message: string;
 	type: TypeToaster;
 }

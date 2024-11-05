@@ -22,7 +22,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { useStore } from "@/store";
-import { ADD_PROJECT, EDIT_PROJECT } from "@/store/type-mutations";
+import { ACTION_CREATE_PROJECT, ACTION_UPDATE_PROJECT } from "@/store/type-actions";
 import AppActionButton from "@/components/AppActionButton.vue";
 import { TypeToaster } from "@/interfaces/IToaster";
 import useToaster from "@/hooks/toastification"
@@ -34,8 +34,12 @@ export default defineComponent({
 		id: String
 	},
 	mounted() {
-		const project = this.store.state.projects.find(proj => proj.id == this.id);
-		this.projectName = project?.name || '';
+		if(this.id) {
+			const project = this.store.state.project.projects.find(
+        (proj) => proj.id == this.id
+      );
+      this.projectName = project?.name || '';
+		}
 	},
 	data() {
 		return {
@@ -45,13 +49,16 @@ export default defineComponent({
 	methods: {
 		saveProject() {
 			if(this.id) {
-				this.store.commit(EDIT_PROJECT, {
+				this.store.dispatch(ACTION_UPDATE_PROJECT, {
 					id: this.id,
 					name: this.projectName
-				});
+				}).then(() => this.success());
 			} else {
-				this.store.commit(ADD_PROJECT, this.projectName);
+				this.store.dispatch(ACTION_CREATE_PROJECT, this.projectName)
+					.then(() => this.success());
 			}
+		},
+		success() {
 			this.projectName = '';
 			this.addToast(TypeToaster.SUCCESS, 'Project saved sucessfully!');
 			this.$router.push('/projects');

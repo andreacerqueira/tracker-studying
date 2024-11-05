@@ -1,10 +1,10 @@
 <template>
 	<div class="fixed top-0 left-0 w-full z-50 sm:w-80 sm:bottom-6 sm:top-auto sm:left-auto" :class="position">
 			<transition-group name="fade" tag="div">
-					<div v-for="(toast, index) in toasts" :key="index" class="relative my-0 mb-5 p-5 pr-8 text-white sm:rounded-md sm:my-1 sm:p-4 sm:pr-9" :class="context[toast.type]">
+					<div v-for="(toast, id) in toasts" :key="id" class="relative my-0 mb-5 p-5 pr-8 text-white sm:rounded-md sm:my-1 sm:p-4 sm:pr-9" :class="context[toast.type]">
 							<div class="toast-content">{{ toast.message }}</div>
 							<!-- <button
-									@click="removeToast(toast.index)"
+									@click="removeToast(toast.id)"
 									class="absolute w-8 h-8 right-1 -bottom-3
 												bg-red-500 hover:bg-red-700 rounded-full
 												flex items-center justify-center

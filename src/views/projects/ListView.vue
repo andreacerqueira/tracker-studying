@@ -41,7 +41,7 @@
 <script lang="ts">
 import { computed, defineComponent } from "vue";
 import { useStore } from "@/store";
-import { DELETE_PROJECT } from '@/store/type-mutations';
+import { ACTION_FETCH_PROJECTS, ACTION_REMOVE_PROJECT } from "@/store/type-actions";
 import AppActionButton from "@/components/AppActionButton.vue";
 
 export default defineComponent({
@@ -49,13 +49,14 @@ export default defineComponent({
 	components: { AppActionButton },
 	methods: {
 		deleteProject(id: string) {
-			this.store.commit(DELETE_PROJECT, id);
+			this.store.dispatch(ACTION_REMOVE_PROJECT, id);
 		}
 	},
 	setup() {
 		const store = useStore();
+		store.dispatch(ACTION_FETCH_PROJECTS);
 		return {
-			projects: computed(() => store.state.projects),
+			projects: computed(() => store.state.project.projects),
 			store
 		}
 	}

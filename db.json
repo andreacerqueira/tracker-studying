@@ -1,0 +1,45 @@
+{
+  "projects": [
+    {
+      "id": "1",
+      "name": "TypeScript"
+    },
+    {
+      "id": "2",
+      "name": "Vue"
+    },
+    {
+      "id": "3",
+      "name": "Vuex"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "1",
+      "durationInSecs": 120,
+      "description": "Check validation from input component.",
+      "project": {
+        "id": "1",
+        "name": "TypeScript"
+      }
+    },
+    {
+      "id": "2",
+      "durationInSecs": 20,
+      "description": "Look at the button component.",
+      "project": {
+        "id": "3",
+        "name": "Vuex"
+      }
+    },
+    {
+      "id": "3",
+      "durationInSecs": 360,
+      "description": "Trying coffee before coding.",
+      "project": {
+        "id": "2",
+        "name": "Vue"
+      }
+    }
+  ]
+}
