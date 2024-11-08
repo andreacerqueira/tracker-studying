@@ -40,42 +40,6 @@
         "id": "2",
         "name": "Vue"
       }
-    },
-    {
-      "id": "da2f",
-      "durationInSecs": 2,
-      "description": "Andrea",
-      "project": {
-        "id": "1",
-        "name": "TypeScript"
-      }
-    },
-    {
-      "id": "b3b4",
-      "durationInSecs": 1,
-      "description": "Andrea",
-      "project": {
-        "id": "1",
-        "name": "TypeScript"
-      }
-    },
-    {
-      "id": "a5b2",
-      "durationInSecs": 3,
-      "description": "sdfd",
-      "project": {
-        "id": "1",
-        "name": "TypeScript"
-      }
-    },
-    {
-      "id": "6a50",
-      "durationInSecs": 6,
-      "description": "Andrea",
-      "project": {
-        "id": "1",
-        "name": "TypeScript"
-      }
     }
   ]
 }
