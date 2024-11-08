@@ -61,7 +61,7 @@ export default defineComponent({
 		success() {
 			this.projectName = '';
 			this.addToast(TypeToaster.SUCCESS, 'Project saved sucessfully!');
-			this.$router.push('/projects');
+			// this.$router.push('/projects');
 		}
 	},
 	setup() {

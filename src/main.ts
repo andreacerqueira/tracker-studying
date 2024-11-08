@@ -3,6 +3,11 @@ import App from "./App.vue";
 import router from "./router";
 import { key, store } from "./store";
 
+// Import Vue Final Modal
+import { createVfm } from 'vue-final-modal';
+import 'vue-final-modal/style.css'
+const vfm = createVfm();
+
 // Import the Font Awesome core
 import { library } from "@fortawesome/fontawesome-svg-core";
 
@@ -23,6 +28,7 @@ import "@fortawesome/fontawesome-free/css/all.css";
 
 const app = createApp(App)
   .use(store, key)
+  .use(vfm)
   .use(router);
 
 // Register the FontAwesomeIcon component globally

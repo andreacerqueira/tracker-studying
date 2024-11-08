@@ -24,15 +24,13 @@ export const store = createStore<State>({
         }
     },
     mutations: {
-        [ADD_TOAST] (state, newToast: IToaster) {
-
-            newToast.id = new Date().getTime()
-            state.toasts.push(newToast)
-
-            setTimeout(() => {
-                state.toasts = state.toasts.filter(notificacao => notificacao.id != newToast.id)
-            }, 3000)
-        }
+			[ADD_TOAST] (state, newToast: IToaster) {
+				newToast.id = new Date().getTime()
+					state.toasts.push(newToast)
+					setTimeout(() => {
+							state.toasts = state.toasts.filter(notificacao => notificacao.id != newToast.id)
+					}, 3000);
+			}
     },
     modules: {
         project,

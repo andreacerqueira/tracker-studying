@@ -1,29 +1,24 @@
 <template>
+	
 	<h1>Tasks</h1>
+
 	<AppForm @atSavingTask="saveTask" />
+
 	<div class="mt-8">
 		<AppTasks v-for="(task, index) in tasks" :key="index" :task="task" @onTaskClicked="selectTask" />
 		<AppListBox v-if="listIsEmpty" class="justify-self-center text-center">
 			Let's get it started!
 		</AppListBox>
 	</div>
-	<div class="modal" :class="{ 'is-active': selectedTask }" v-if="selectedTask">
-		<section class="modal-card-body">
-			<div class="field">
-				<label for="descricaoDaTarefa" class="label">
-					Descrição
-				</label>
-				<input
-					type="text"
-					class="input"
-					v-model="selectedTask.description"
-					id="descricaoDaTarefa"
-				/>
-			</div>
-		</section>
-		<button @click="updateTask" class="button is-success">Save</button>
-		<!-- <button @click="closeModal" class="button">Cancel</button> -->
-	</div>
+
+	<button
+		@click="isModalVisible = true"
+		class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-700 dark:focus:bg-neutral-700"
+	>
+		Open Modal
+	</button>
+
+	<AppModal :isOpen="isModalVisible" @close="isModalVisible = false" />
 </template>
 
 <script lang="ts">
@@ -32,15 +27,17 @@ import { useStore } from "@/store";
 import AppForm from "../components/AppForm.vue";
 import AppTasks from "../components/AppTasks.vue";
 import AppListBox from '../components/AppListBox.vue';
+import AppModal from '../components/AppModal.vue';
 import { ACTION_FETCH_TASKS, ACTION_CREATE_TASK, ACTION_UPDATE_TASK, ACTION_FETCH_PROJECTS } from "@/store/type-actions";
 import ITask from "@/interfaces/ITask";
 
 export default defineComponent({
-	name: "App",
-	components: { AppForm, AppTasks, AppListBox },
+	name: "TasksView",
+	components: { AppForm, AppTasks, AppListBox, AppModal },
 	data() {
     return {
       selectedTask: null as ITask | null,
+			isModalVisible: false
     };
   },
 	methods: {

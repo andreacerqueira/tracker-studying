@@ -1,5 +1,5 @@
 <template>
-	<main class="flex h-full bg-gray-950">
+	<main class="relative flex h-full bg-gray-950 z-10">
 		<div class="flex flex-col w-64 h-dvh bg-gray-900">
 			<AppSidebar />
 		</div>
@@ -35,7 +35,9 @@ export default defineComponent({
 		// Call showToast whenever you want to display a toast
 		// showToast();
 
-		return { showToast };
+		return {
+			showToast
+		};
 	}
 });
 </script>
