@@ -10,7 +10,7 @@
 					<h2 class="text-2xl font-bold py-4">
 						<slot name="header">Dummy header</slot>
 					</h2>
-					<p class="text-md text-gray-500 px-8">
+					<p class="text-md text-gray-500 py-2 px-2">
 						<slot name="body">Do you really want to exit without saving your work?</slot>
 					</p>
 				</div>
@@ -35,7 +35,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, onUnmounted } from 'vue';
+import { defineComponent } from 'vue';
 
 export default defineComponent({
 	name: 'AppModal',

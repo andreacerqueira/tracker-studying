@@ -15,13 +15,13 @@ export const key: InjectionKey<Store<State>> = Symbol()
 
 export const store = createStore<State>({
     state: {
-        toasts: [],
+        task: {
+					tasks: []
+        },
         project: {
 					projects: []
         },
-        task: {
-					tasks: []
-        }
+        toasts: []
     },
     mutations: {
 			[ADD_TOAST] (state, newToast: IToaster) {

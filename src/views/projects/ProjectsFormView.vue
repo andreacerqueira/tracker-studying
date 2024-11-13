@@ -20,12 +20,13 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, ref } from "vue";
 import { useStore } from "@/store";
 import { ACTION_CREATE_PROJECT, ACTION_UPDATE_PROJECT } from "@/store/type-actions";
 import AppActionButton from "@/components/AppActionButton.vue";
 import { TypeToaster } from "@/interfaces/IToaster";
 import useToaster from "@/hooks/toastification"
+import { useRouter } from "vue-router";
 
 export default defineComponent({
 	name: 'ProjectsFormView',
@@ -33,43 +34,41 @@ export default defineComponent({
 	props: {
 		id: String
 	},
-	mounted() {
-		if(this.id) {
-			const project = this.store.state.project.projects.find(
-        (proj) => proj.id == this.id
-      );
-      this.projectName = project?.name || '';
-		}
-	},
-	data() {
-		return {
-			projectName: ""
-		}
-	},
-	methods: {
-		saveProject() {
-			if(this.id) {
-				this.store.dispatch(ACTION_UPDATE_PROJECT, {
-					id: this.id,
-					name: this.projectName
-				}).then(() => this.success());
-			} else {
-				this.store.dispatch(ACTION_CREATE_PROJECT, this.projectName)
-					.then(() => this.success());
-			}
-		},
-		success() {
-			this.projectName = '';
-			this.addToast(TypeToaster.SUCCESS, 'Project saved sucessfully!');
-			// this.$router.push('/projects');
-		}
-	},
-	setup() {
+	setup(props) {
+		const router = useRouter();
 		const store = useStore();
+		const projectName = ref("");
 		const { addToast } = useToaster();
+
+		if(props.id) {
+			const project = store.state.project.projects.find(
+        (proj) => proj.id == props.id
+      );
+      projectName.value = project?.name || '';
+		}
+
+		const saveProject = () => {
+			if(props.id) {
+				store.dispatch(ACTION_UPDATE_PROJECT, {
+					id: props.id,
+					name: projectName.value
+				}).then(() => success());
+			} else {
+				store.dispatch(ACTION_CREATE_PROJECT, projectName.value)
+					.then(() => success());
+			}
+		}
+
+		const success = () => {
+			projectName.value = '';
+			addToast(TypeToaster.SUCCESS, 'Project saved sucessfully!');
+			router.push('/projects');
+		}
+
+		// should onlye return what needs to be used in the template
 		return {
-			store,
-			addToast
+			projectName,
+			saveProject
 		}
 	}
 });

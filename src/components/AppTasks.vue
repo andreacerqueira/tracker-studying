@@ -1,6 +1,6 @@
 <template>
-	<AppListBox>
-		<div @click="taskClicked">
+	<AppListBox @click="taskClicked">
+		<div>
 			{{ task.description || 'Task without a name!' }}
 		</div>
 		<div>
@@ -28,10 +28,10 @@ export default defineComponent({
 			type: Object as PropType<ITask>,
 			required: true
 		}
-	}
-	,methods: {
+	},
+	methods: {
     taskClicked() : void {
-      this.$emit('onTaskClicked', this.task)
+      this.$emit('onTaskClicked', this.task);
     }
   },
   computed: {

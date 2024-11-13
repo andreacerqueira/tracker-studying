@@ -1,11 +1,11 @@
 <template>
-	<div class="flex gap-24 items-center">
+	<div class="flex gap-8 items-center">
 		<div
 			class="flex flex-row gap-2 items-center w-full"
 			role="form"
 			aria-label="Form for creating new tasks"
 		>
-			<label for="task_name" class="flex block font-bold">Task Name</label>
+			<label for="task_name" class="flex font-bold">Task Name</label>
 			<input
 				type="text"
 				name="task_name"
@@ -16,7 +16,7 @@
 			/>
 		</div>
 		<div class="flex flex-row gap-2 items-center w-full">
-			<label for="project_name" class="flex block font-bold">List of Projects</label>
+			<label for="project_name" class="flex font-bold">List of Projects</label>
 			<select
 				v-model="idProject"
 				name="project_name"
@@ -41,7 +41,7 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent } from "vue";
+import { computed, defineComponent, ref } from "vue";
 import AppTimer from "./AppTimer.vue";
 import { useStore } from "vuex";
 import { key } from "@/store";
@@ -50,26 +50,26 @@ export default defineComponent({
 	name: "AppForm",
 	emits: ['atSavingTask'],
 	components: { AppTimer },
-	data() {
-		return {
-			description: null,
-			idProject: null
-		}
-	},
-	methods:  {
-		finishTask(elapsedTime: number) : void {
-			this.$emit('atSavingTask', {
-				durationInSecs: elapsedTime,
-				description: this.description,
-				project: this.projects.find(proj => proj.id == this.idProject)
-			});
-			this.description = null;
-		}
-	},
-	setup() {
+	setup(props, { emit }) {
 		const store = useStore(key);
+		const description = ref("");
+		const idProject = ref("");
+		const projects = computed(() => store.state.project.projects);
+
+		const finishTask = (elapsedTime: number) : void => {
+			emit('atSavingTask', {
+				durationInSecs: elapsedTime,
+				description: description.value,
+				project: projects.value.find(proj => proj.id == idProject.value)
+			});
+			description.value = "";
+		}
+
 		return {
-			projects: computed(() => store.state.project.projects)
+			description,
+			idProject,
+			projects,
+			finishTask
 		}
 	}
 });

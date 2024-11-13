@@ -26,8 +26,14 @@ export const task: Module<StateTask, State> = {
 		}
 	},
 	actions: {
-		[ACTION_FETCH_TASKS]({ commit }) {
-			http.get('tasks')
+		[ACTION_FETCH_TASKS]({ commit }, search: string) {
+			let url = 'tasks';
+
+			if(search) {
+				url += '?description=' + search;
+			}
+
+			http.get(url)
 				.then(response => commit(SET_TASKS, response.data));
 		},
 		[ACTION_CREATE_TASK]({ commit }, task: ITask) {
