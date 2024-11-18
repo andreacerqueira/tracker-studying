@@ -18,17 +18,6 @@
   <AppForm @atSavingTask="saveTask" />
 
   <div class="mt-8">
-    <!-- <div class="flex flex-row gap-2 items-center py-8 w-full">
-      <label for="search">Search</label>
-      <input
-        type="text"
-        v-model="search"
-        id="search"
-        placeholder="Type"
-        class="flex-1 bg-gray-900 appearance-none border-2 border-gray-900 rounded w-full py-2 px-4 text-white leading-tight focus:outline-none focus:bg-gray-900/80 focus:border-blue-500"
-      />
-    </div> -->
-
     <AppTable>
       <template v-slot:header>
         <th>ID</th>
