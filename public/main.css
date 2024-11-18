@@ -557,6 +557,10 @@ video {
   display: none;
 }
 
+.collapse {
+  visibility: collapse;
+}
+
 .fixed {
   position: fixed;
 }
@@ -601,6 +605,11 @@ video {
   z-index: 50;
 }
 
+.mx-0 {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -621,8 +630,16 @@ video {
   margin-bottom: auto;
 }
 
+.-mt-8 {
+  margin-top: -2rem;
+}
+
 .mb-5 {
   margin-bottom: 1.25rem;
+}
+
+.mb-8 {
+  margin-bottom: 2rem;
 }
 
 .mt-4 {
@@ -633,12 +650,28 @@ video {
   margin-top: 2rem;
 }
 
+.ml-auto {
+  margin-left: auto;
+}
+
+.-mt-\[3rem\] {
+  margin-top: -3rem;
+}
+
+.block {
+  display: block;
+}
+
 .flex {
   display: flex;
 }
 
 .table {
   display: table;
+}
+
+.hidden {
+  display: none;
 }
 
 .h-8 {
@@ -651,6 +684,54 @@ video {
 
 .h-full {
   height: 100%;
+}
+
+.min-h-20 {
+  min-height: 5rem;
+}
+
+.min-h-16 {
+  min-height: 4rem;
+}
+
+.min-h-\[80px\] {
+  min-height: 80px;
+}
+
+.min-h-\[70px\] {
+  min-height: 70px;
+}
+
+.min-h-\[4rem\] {
+  min-height: 4rem;
+}
+
+.min-h-\[4\.2rem\] {
+  min-height: 4.2rem;
+}
+
+.min-h-\[4\.4rem\] {
+  min-height: 4.4rem;
+}
+
+.min-h-\[3\.4rem\] {
+  min-height: 3.4rem;
+}
+
+.min-h-\[3\.8rem\] {
+  min-height: 3.8rem;
+}
+
+.min-h-\[3\.6rem\] {
+  min-height: 3.6rem;
+}
+
+.min-h-\[5rem\] {
+  min-height: 5rem;
+}
+
+.min-h-\[4\.6rem\] {
+  min-height: 4.6rem;
 }
 
 .w-64 {
@@ -680,6 +761,10 @@ video {
 
 .flex-auto {
   flex: 1 1 auto;
+}
+
+.border-collapse {
+  border-collapse: collapse;
 }
 
 .cursor-pointer {
@@ -760,8 +845,28 @@ video {
   border-radius: 0.75rem;
 }
 
+.border {
+  border-width: 1px;
+}
+
 .border-2 {
   border-width: 2px;
+}
+
+.border-b {
+  border-bottom-width: 1px;
+}
+
+.border-l-0 {
+  border-left-width: 0px;
+}
+
+.border-r-0 {
+  border-right-width: 0px;
+}
+
+.border-t-0 {
+  border-top-width: 0px;
 }
 
 .border-t-2 {
@@ -770,6 +875,11 @@ video {
 
 .border-t-\[1px\] {
   border-top-width: 1px;
+}
+
+.border-gray-700 {
+  --tw-border-opacity: 1;
+  border-color: rgb(55 65 81 / var(--tw-border-opacity));
 }
 
 .border-gray-800 {
@@ -840,6 +950,10 @@ video {
   background-color: rgb(161 98 7 / 0.95);
 }
 
+.p-1 {
+  padding: 0.25rem;
+}
+
 .p-12 {
   padding: 3rem;
 }
@@ -872,12 +986,29 @@ video {
   padding-bottom: 1rem;
 }
 
+.py-8 {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.pb-5 {
+  padding-bottom: 1.25rem;
+}
+
 .pr-8 {
   padding-right: 2rem;
 }
 
 .pt-4 {
   padding-top: 1rem;
+}
+
+.pb-4 {
+  padding-bottom: 1rem;
+}
+
+.pb-3 {
+  padding-bottom: 0.75rem;
 }
 
 .text-left {
@@ -893,9 +1024,19 @@ video {
   line-height: 2rem;
 }
 
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+
 .text-sm {
   font-size: 0.875rem;
   line-height: 1.25rem;
+}
+
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
 }
 
 .font-bold {
@@ -939,6 +1080,10 @@ video {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
+.underline {
+  text-decoration-line: underline;
+}
+
 .shadow {
   --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
@@ -974,7 +1119,7 @@ video {
 }
 
 body {
-  color: #FFF;
+  color: #fff;
 }
 
 input:-webkit-autofill {
@@ -984,142 +1129,11 @@ input:-webkit-autofill {
   -webkit-text-fill-color: #fff !important;
 }
 
-h1 {
-  font-size: 2rem;
-  padding: 0;
-  margin: -2rem 0 2rem 0;
-}
-
 /* Google Material Icons */
 
 /* .material-symbols-outlined {
 	font-variation-settings: "FILL"0, "wght"400, "GRAD"0, "opsz"48;
 } */
-
-/* Responsive TABLE ------------------------------------------------------ */
-
-.aa-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-/* block columns that has data-label, regular columns to have click event, so it will only work on the edit delete buttons column */
-
-.aa-table td:not([data-label='']) a {
-  /* color: var(--bs-body-color); */
-  text-decoration: none;
-  /* pointer-events: none; */
-}
-
-.aa-table thead .material-symbols-outlined {
-  vertical-align: middle;
-  height: 1.8rem;
-}
-
-.aa-table thead tr th {
-  vertical-align: middle;
-  text-align: left;
-  border-bottom: 4px solid rgb(55, 65, 81);
-}
-
-.aa-table thead tr th.text-actions {
-  text-align: right;
-}
-
-/* From Bootstrap */
-
-.aa-table {
-  width: 100%;
-  margin-bottom: 1rem;
-  vertical-align: top;
-}
-
-.aa-table > :not(caption)>*>* {
-  padding: 0.8rem 0.4rem 0.4rem 0.4rem;
-  color: #FFF;
-  vertical-align: middle;
-}
-
-.aa-table > tbody {
-  vertical-align: inherit;
-}
-
-.aa-table tbody tr {
-  background-color: rgba(55, 65, 81, 0);
-  border-bottom: 1px solid rgb(55, 65, 81);
-  transition: all 0.3s;
-}
-
-.aa-table tbody tr:hover {
-  background-color: rgba(55, 65, 81, 1);
-}
-
-.aa-table tbody tr.division {
-  border-bottom: 4px solid rgb(55, 65, 81);
-}
-
-.aa-table > thead {
-  vertical-align: bottom;
-}
-
-/* Responsive Table */
-
-@media (max-width: 768px) {
-  .aa-table td:not([data-label='']) a {
-    color: rgba(var(--bs-link-color-rgb),var(--bs-link-opacity,1));
-    text-decoration: underline;
-    /* pointer-events: all; */
-  }
-
-  .aa-table tbody tr.division {
-    border: none;
-  }
-
-  .aa-table.responsive thead {
-    visibility: hidden;
-    height: 0;
-    position: absolute;
-  }
-
-  .aa-table.responsive tr {
-    display: block;
-    margin-bottom: 1rem;
-    border: rgba(17, 24, 39, 1) solid 1px;
-    border-radius: 0.5rem;
-    background-color: rgba(17, 24, 39, 0.5);
-  }
-
-  .aa-table.responsive td,
-    .aa-table.responsive th {
-    display: flex;
-    flex-direction: column;
-    border: none;
-    font-size: 1rem;
-    min-height: 3.2rem;
-    line-height: 1.6rem;
-    padding: 0.8rem 1.6rem;
-  }
-
-  .aa-table.responsive td:first-child,
-    .aa-table.responsive th:first-child {
-    padding: 1.6rem 1.6rem 0.8rem 1.6rem;
-  }
-
-  .aa-table.responsive td:last-child,
-    .aa-table.responsive th:last-child {
-    padding: 0.8rem 1.6rem 1.6rem 1.6rem;
-  }
-
-  .aa-table.responsive td::before {
-    content: attr(data-label);
-    font-weight: bold;
-    font-size: 1.1rem;
-  }
-
-  .aa-table.responsive td:last-child a {
-    padding: 0 0 0 1rem;
-  }
-}
 
 .hover\:bg-blue-400:hover {
   --tw-bg-opacity: 1;
@@ -1239,20 +1253,8 @@ h1 {
     margin-bottom: 0.25rem;
   }
 
-  .sm\:flex {
-    display: flex;
-  }
-
   .sm\:w-80 {
     width: 20rem;
-  }
-
-  .sm\:flex-col {
-    flex-direction: column;
-  }
-
-  .sm\:items-end {
-    align-items: flex-end;
   }
 
   .sm\:rounded-md {

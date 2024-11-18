@@ -6,43 +6,43 @@ import ProjectsFormView from '../views/projects/ProjectsFormView.vue';
 import ListView from '@/views/projects/ListView.vue';
 
 const routes: Array<RouteRecordRaw> = [
-	{
-		path: '/',
-		name: 'Tasks',
-		component: TasksView
-	},
-	{
-		path: '/projects',
-		component: ProjectsView,
-		children: [
-			{
-				path: '',
-				name: 'Projects',
-				component: ListView
-			},
-			{
-				path: 'new',
-				name: 'New Project',
-				component: ProjectsFormView
-			},
-			{
-				path: ':id',
-				name: 'Edit Project',
-				component: ProjectsFormView,
-				props: true
-			}
-		]
-	},
-	{
-		path: '/settings',
-		name: 'Settings',
-		component: SettingsView
-	}
+  {
+    path: '/',
+    name: 'Tasks',
+    component: TasksView,
+  },
+  {
+    path: '/projects',
+    component: ProjectsView,
+    children: [
+      {
+        path: '',
+        name: 'Projects',
+        component: ListView,
+      },
+      {
+        path: 'new',
+        name: 'New Project',
+        component: ProjectsFormView,
+      },
+      {
+        path: ':id',
+        name: 'Edit Project',
+        component: ProjectsFormView,
+        props: true,
+      },
+    ],
+  },
+  {
+    path: '/settings',
+    name: 'Settings',
+    component: SettingsView,
+  },
 ];
 
 const router = createRouter({
-	history: createWebHistory(),
-	routes,
+  history: createWebHistory(),
+  routes,
 });
 
 export default router;

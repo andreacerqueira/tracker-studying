@@ -3,7 +3,7 @@
     :href="href"
     :class="[
       'flex gap-2 w-fit font-bold py-2 px-4 cursor-pointer duration-300',
-      linkClass
+      linkClass,
     ]"
   >
     <span v-if="icon" class="icon">
@@ -14,36 +14,36 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent } from 'vue';
 
 export default defineComponent({
-  name: "AppLink",
+  name: 'AppLink',
   props: {
     icon: String,
     txt: String,
     href: {
       type: String,
-      required: true
+      required: true,
     },
     variant: {
-      type: String as () => "primary" | "secondary" | "danger" | "icon",
-      default: "primary"
-    }
+      type: String as () => 'primary' | 'secondary' | 'danger' | 'icon',
+      default: 'primary',
+    },
   },
   computed: {
     linkClass() {
       switch (this.variant) {
-        case "primary":
-          return "text-blue-500 hover:underline";
-        case "danger":
-          return "text-red-700 hover:underline";
-        case "icon":
-          return "text-red-700 hover:text-gray-500";
+        case 'primary':
+          return 'text-blue-500 hover:underline';
+        case 'danger':
+          return 'text-red-700 hover:underline';
+        case 'icon':
+          return 'text-red-700 hover:text-gray-500';
         default:
-          return "text-gray-500 hover:underline";
+          return 'text-gray-500 hover:underline';
       }
-    }
-  }
+    },
+  },
 });
 </script>
 

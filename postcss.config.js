@@ -1,8 +1,8 @@
 // postcss.config.js
 module.exports = {
-	syntax: 'postcss-scss',
-	plugins: {
-			tailwindcss: {},
-			autoprefixer: {},
-	},
+  syntax: 'postcss-scss',
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+  },
 };

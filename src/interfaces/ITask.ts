@@ -1,8 +1,8 @@
-import IProject from "./IProject";
+import IProject from './IProject';
 
 export default interface ITask {
-	id: number,
-	durationInSecs: number,
-	description: string,
-	project: IProject
+  id: string;
+  durationInSecs: number;
+  description: string;
+  project: IProject;
 }
