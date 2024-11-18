@@ -1,4 +1,4 @@
-const { defineConfig } = require("@vue/cli-service");
+const { defineConfig } = require('@vue/cli-service');
 module.exports = defineConfig({
   devServer: {
     host: process.env.VUE_APP_HOST,
@@ -8,11 +8,11 @@ module.exports = defineConfig({
       // Proxy all API requests to the backend server
       '/api': {
         target: process.env.VUE_APP_PROXY_TARGET,
-        changeOrigin: true
-      }
-    }
+        changeOrigin: true,
+      },
+    },
   },
-  transpileDependencies: true
+  transpileDependencies: true,
 });
 
 // module.exports = {

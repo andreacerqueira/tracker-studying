@@ -1,15 +1,15 @@
 <template>
   <component
     :class="[
-			'flex gap-2 w-fit font-bold py-2 px-4 cursor-pointer duration-300 focus:shadow-outline focus:outline-none disabled:cursor-not-allowed disabled:bg-gray-400',
-			buttonClass
-		]"
+      'flex gap-2 w-fit font-bold py-2 px-4 cursor-pointer duration-300 focus:shadow-outline focus:outline-none disabled:cursor-not-allowed disabled:bg-gray-400',
+      buttonClass,
+    ]"
     :is="resolvedComponent"
     :to="to"
     :type="to ? null : buttonType"
     :disabled="disabled"
     @click="emitClicked"
-	>
+  >
     <span class="material-symbols-outlined" v-if="icon">{{ icon }}</span>
     <span v-if="txt">
       {{ txt }}
@@ -18,47 +18,54 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, resolveComponent, computed } from "vue";
+import { defineComponent, resolveComponent, computed } from 'vue';
 
 export default defineComponent({
-  name: "AppActionButton",
-  emits: ["emitClicked"],
+  name: 'AppActionButton',
+  emits: ['emitClicked'],
   props: {
     to: String, // Accept a 'to' prop for navigation
     icon: {
       type: String,
-      required: false
+      required: false,
     },
     txt: {
       type: String,
-      required: false
+      required: false,
     },
-		buttonType: {
-			type: String as () => 'button' | 'submit' | 'reset', // Strict type checking for button types
-			default: 'button'
-		},
+    buttonType: {
+      type: String as () => 'button' | 'submit' | 'reset', // Strict type checking for button types
+      default: 'button',
+    },
     variant: {
-      type: String as () => 'primary' | 'secondary' | 'danger' | 'ghost' | 'icon',
-      default: 'primary'
+      type: String as () =>
+        | 'primary'
+        | 'secondary'
+        | 'danger'
+        | 'ghost'
+        | 'icon',
+      default: 'primary',
     },
-		disabled: {
+    disabled: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   methods: {
-    emitClicked() : void {
+    emitClicked(): void {
       if (!this.disabled) {
-        this.$emit("emitClicked");
+        this.$emit('emitClicked');
       }
-    }
+    },
   },
   setup(props, { emit }) {
-    const resolvedComponent = computed(() => (props.to ? resolveComponent('RouterLink') : 'button'));
+    const resolvedComponent = computed(() =>
+      props.to ? resolveComponent('RouterLink') : 'button'
+    );
 
     const handleClick = () => {
       if (!props.disabled && !props.to) {
-        emit("emitClicked");
+        emit('emitClicked');
       }
     };
 
@@ -82,12 +89,10 @@ export default defineComponent({
     return {
       resolvedComponent,
       handleClick,
-      buttonClass
+      buttonClass,
     };
-  }
+  },
 });
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

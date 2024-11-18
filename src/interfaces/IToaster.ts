@@ -1,11 +1,11 @@
 export enum TypeToaster {
-	SUCCESS,
-	ERROR,
-	ATTENTION
+  SUCCESS,
+  ERROR,
+  ATTENTION,
 }
 
 export default interface IToaster {
-	index: number;
-	message: string;
-	type: TypeToaster;
+  id: number;
+  message: string;
+  type: TypeToaster;
 }

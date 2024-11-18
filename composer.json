@@ -1,18 +1,18 @@
 {
-    "name": "deia/tracker",
-    "description": "Activities Tracker",
-    "autoload": {
-        "psr-4": {
-            "Deia\\Tracker\\": "src/"
-        }
-    },
-    "authors": [
-        {
-            "name": "Andrea Amado"
-        }
-    ],
-    "require": {
-        "vlucas/phpdotenv": "^5.6",
-        "firebase/php-jwt": "^6.10"
+  "name": "deia/tracker",
+  "description": "Activities Tracker",
+  "autoload": {
+    "psr-4": {
+      "Deia\\Tracker\\": "src/"
     }
+  },
+  "authors": [
+    {
+      "name": "Andrea Amado"
+    }
+  ],
+  "require": {
+    "vlucas/phpdotenv": "^5.6",
+    "firebase/php-jwt": "^6.10"
+  }
 }
