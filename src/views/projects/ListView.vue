@@ -1,10 +1,4 @@
 <template>
-  <AppActionButton
-    @click="openModal(false)"
-    txt="New Project"
-    variant="primary"
-  />
-
   <div class="table-responsive">
     <table class="aa-table responsive">
       <thead>

@@ -1,5 +1,5 @@
 <template>
-  <div class="flex gap-8 items-center">
+  <div class="flex gap-8 items-center p-6 bg-gray-700 rounded">
     <div
       class="flex flex-row gap-2 items-center w-full"
       role="form"
