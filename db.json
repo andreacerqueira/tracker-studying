@@ -18,7 +18,7 @@
     },
     {
       "id": "dbcb",
-      "name": "JQuery"
+      "name": "JQuery 3.5"
     }
   ],
   "tasks": [
@@ -65,15 +65,6 @@
       "project": {
         "id": "1",
         "name": ""
-      }
-    },
-    {
-      "id": "52f2",
-      "durationInSecs": 12,
-      "description": "WP 2024",
-      "project": {
-        "id": "67ee",
-        "name": "Wordpress"
       }
     }
   ]

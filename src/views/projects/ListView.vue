@@ -33,9 +33,7 @@
   </div>
 
   <AppModal :isOpen="selectedProject != null" @close="closeModal">
-    <template v-slot:header>
-      {{ isEditing ? 'Edit Project' : 'New Project' }}
-    </template>
+    <template v-slot:header> Edit Project </template>
     <template v-slot:body>
       <div class="flex flex-col gap-8">
         <div class="flex flex-col gap-2 w-full text-left">
@@ -55,7 +53,7 @@
         class="flex gap-2 w-fit font-bold py-2 px-4 cursor-pointer duration-300 focus:shadow-outline focus:outline-none disabled:cursor-not-allowed disabled:bg-gray-400 bg-blue-500 text-white rounded shadow hover:bg-blue-400"
         @click="saveProject"
       >
-        {{ isEditing ? 'Save' : 'Create' }}
+        Save
       </button>
       <button
         @click="closeModal"
@@ -68,10 +66,9 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent } from 'vue';
+import { defineComponent, computed } from 'vue';
 import { useStore } from '@/store';
 import {
-  ACTION_CREATE_PROJECT,
   ACTION_FETCH_PROJECTS,
   ACTION_REMOVE_PROJECT,
   ACTION_UPDATE_PROJECT,
@@ -86,20 +83,13 @@ export default defineComponent({
   data() {
     return {
       selectedProject: null as IProject | null,
-      isEditing: false,
     };
   },
   methods: {
     saveProject() {
-      if (this.isEditing) {
-        this.store
-          .dispatch(ACTION_UPDATE_PROJECT, this.selectedProject)
-          .then(() => this.store.dispatch(ACTION_FETCH_PROJECTS));
-      } else {
-        this.store
-          .dispatch(ACTION_CREATE_PROJECT, this.selectedProject?.name)
-          .then(() => this.store.dispatch(ACTION_FETCH_PROJECTS));
-      }
+      this.store
+        .dispatch(ACTION_UPDATE_PROJECT, this.selectedProject)
+        .then(() => this.store.dispatch(ACTION_FETCH_PROJECTS));
       this.closeModal();
     },
     deleteProject(id: string) {
@@ -110,7 +100,6 @@ export default defineComponent({
       this.openModal(true, project);
     },
     openModal(isEdit: boolean, project: IProject | null = null) {
-      this.isEditing = isEdit;
       this.selectedProject =
         isEdit && project ? { ...project } : { id: '', name: '' };
     },
