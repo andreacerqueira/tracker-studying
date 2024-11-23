@@ -1,4 +1,7 @@
 <template>
+  <h2 class="ml-4 mt-4 px-4 py-2 rounded-tr-md rounded-tl-md w-fit bg-gray-900">
+    Start New Task
+  </h2>
   <div class="flex gap-8 items-center p-6 bg-gray-700 rounded">
     <div
       class="flex flex-row gap-2 items-center w-full"

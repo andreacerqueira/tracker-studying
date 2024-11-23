@@ -18,7 +18,11 @@
     },
     {
       "id": "dbcb",
-      "name": "JQuery 3.5"
+      "name": "JQuery"
+    },
+    {
+      "id": "9a8f",
+      "name": "A11y"
     }
   ],
   "tasks": [
@@ -65,6 +69,24 @@
       "project": {
         "id": "1",
         "name": ""
+      }
+    },
+    {
+      "id": "82b5",
+      "durationInSecs": 4,
+      "description": "Andrea",
+      "project": {
+        "id": "dbcb",
+        "name": "JQuery 3.5"
+      }
+    },
+    {
+      "id": "beec",
+      "durationInSecs": 4,
+      "description": "Accessibility",
+      "project": {
+        "id": "9a8f",
+        "name": "A11y"
       }
     }
   ]
